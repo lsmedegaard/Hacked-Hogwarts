@@ -61,6 +61,8 @@ function cleanData(studentData, familyMap) {
 
         const imagePath = lastname ? `${lastname.toLowerCase()}_${firstname[0].toLowerCase()}` : null
 
+        const crestPath = student.house.trim();
+
         const studentObject = {
             fullname,
             firstname,
@@ -70,7 +72,8 @@ function cleanData(studentData, familyMap) {
             gender,
             house,
             bloodstatus,
-            imagePath
+            imagePath,
+            crestPath
         }
         clean.push(studentObject)
     })
@@ -102,9 +105,16 @@ function updateCount () {
     document.querySelector('#count').textContent = students.length
 }
 
+
+
 function showPopup (studentElement) {
     const studentIndex = studentElement.getAttribute('data-student-index')
     const student = sortedStudents[studentIndex]
+    // let prefect = null
+
+    // if (prefect === true) {
+
+    // }
 
     const popup = document.querySelector("#popup")
     popup.classList.add("show")
@@ -114,6 +124,7 @@ function showPopup (studentElement) {
     popup.querySelector("#popup_house").textContent = student.house
     popup.querySelector("#popup_bloodstatus").textContent = student.bloodstatus
     if (student.imagePath) popup.querySelector("#popup_image").setAttribute('src', `images/${student.imagePath}.png`)
+    if (student.crestPath) popup.querySelector("#crest_image").setAttribute('src', `images/${student.crestPath}.png`)
 
     const colorMap = {
         'Gryffindor': '#740001',
@@ -139,6 +150,8 @@ function sort (key) {
     }
     updateView()
 }
+
+
 
 let students = null
 let sortedStudents = null

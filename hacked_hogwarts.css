@@ -6,9 +6,11 @@
 
 #headers {
   display: flex;
-  width: 50%;
+  width: 100%;
   margin-bottom: 4vw;
+  padding-bottom: 2vw;
   font-weight: 600;
+  background-color: red;
 }
 
 #headers div {
@@ -16,7 +18,7 @@
 }
 
 #headers div {
-  width: 33.33%;
+  width: 33%;
   cursor: pointer;
 }
 
@@ -102,4 +104,8 @@
 .count_wrapper {
   display: flex;
   justify-content: center;
+}
+
+body {
+  margin: auto 0;
 }
