@@ -5,24 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacked Hogwarts</title>
+    <link rel="stylesheet" href="hacked_hogwarts.css">
+
 </head>
 <body>
-    <section id="container">
-        <template>
+    <section>
+        <div class="container">
+            <template id="student_template">
+                <div class="student" onclick="showPopup(this)">
+                    <div class="student_firstname"></div>      
+                    <div class="student_lastname"></div>      
+                    <div class="student_house"></div>  
+                </div>              
+            </template>
+            <div id="headers">
+                <div onClick="sort('firstname')">Firstname</div>
+                <div onClick="sort('lastname')">Lastname</div>
+                <div onClick="sort('house')">House</div>
+            </div>
             <div id="students">
-                <div id="firstname"></div>
 
             </div>
-        </template>
+        </div>
+        <div class="count_wrapper">
+            <div>Antal elever: <span id="count"></div></div>
+        </div>
+        
     </section>
 
-
-
-
-
-
-
-
+    <div id="popup_relative">
+        <div id="popup" class="hidden">
+            <div class="top_row">
+                <div class="left_col">
+                    <img id="popup_image" src="" />
+                </div>
+                <div class="right_col"></div>
+            </div>
+            <div class="bottom_row">
+                <div class="info_box_wrapper">
+                    <div class="info_box">
+                        <div class="info">
+                            <div>Fullname:&nbsp;</div>
+                            <div id="popup_fullname"></div>
+                        </div>
+                        <div class="info">
+                            <div>House:&nbsp;</div>
+                            <div id="popup_house"></div>
+                        </div>
+                        <div class="info">
+                            <div>Gender:&nbsp;</div>
+                            <div id="popup_gender"></div>
+                        </div>
+                        <div class="info">
+                            <div>Blood Status:&nbsp;</div>
+                            <div id="popup_bloodstatus"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="close_popup_button" onClick="closePopup()">&#10005;</div>
+        </div>
+    </div>
 
    <script src="hacked_hogwarts.js"></script> 
 </body>
