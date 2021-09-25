@@ -267,6 +267,7 @@ let lasseObject = {
     imagePath: 'smedegaard-l'
 }
 
+// initialize site
 async function initialize () {
     const data = await getData()
     const familyMap = {}
