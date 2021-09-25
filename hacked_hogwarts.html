@@ -10,25 +10,67 @@
 </head>
 <body>
     <section>
-        <div class="container">
-            <template id="student_template">
-                <div class="student" onclick="showPopup(this)">
-                    <div class="student_firstname"></div>      
-                    <div class="student_lastname"></div>      
-                    <div class="student_house"></div>  
-                </div>              
-            </template>
+        <div id="headers_wrapper">
             <div id="headers">
                 <div onClick="sort('firstname')">Firstname</div>
                 <div onClick="sort('lastname')">Lastname</div>
                 <div onClick="sort('house')">House</div>
-            </div>
-            <div id="students">
-
+                <div>Actions</div>
             </div>
         </div>
-        <div class="count_wrapper">
-            <div>Antal elever: <span id="count"></div></div>
+        <div id="main_cols">
+            <div class="left_col">
+                <div id="house_filters">
+                    <div id="gryffindor" onClick="toggleHouseFilter('gryffindor')"></div>
+                    <div id="slytherin" onClick="toggleHouseFilter('slytherin')"></div>
+                    <div id="ravenclaw" onClick="toggleHouseFilter('ravenclaw')"></div>
+                    <div id="hufflepuff" onClick="toggleHouseFilter('hufflepuff')"></div>
+                </div>
+                <div id="search">
+                    <label for="search">Search</label>
+                    <input onInput="search(this)" name="search" type="text" />
+                </div>
+                <div id="expelled_filter" onclick="toggleExpelledStudents()">
+                    Show expelled students
+                </div>
+                <div id="counts">
+                    <div id="total">Total:&nbsp;<span class="count"></span></div>
+                    <div id="expelled">Expelled:&nbsp;<span class="count"></span></div>
+                    <div id="listed">Listed:&nbsp;<span class="count"></span></div>
+                    <div id="gryffindor">Gryffindor:&nbsp;<span class="count"></span></div>
+                    <div id="slytherin">Slytherin:&nbsp;<span class="count"></span></div>
+                    <div id="ravenclaw">Ravenclaw:&nbsp;<span class="count"></span></div>
+                    <div id="hufflepuff">Hufflepuff:&nbsp;<span class="count"></span></div>
+                </div>
+            </div>
+            <div class="middle_col">
+                <template id="student_template">
+                    <div class="student">
+                        <div class="student_info" onclick="showPopup(this)">
+                            <div class="student_firstname"></div>      
+                            <div class="student_lastname"></div>      
+                            <div class="student_house"></div>   
+                        </div>   
+                        <div class="student_actions">
+                            <div class="expel" onClick="expelStudent(this)">
+                                <i class="fa fa-times"></i>
+                            </div>
+                            <div class="prefect" onClick="togglePrefects(this)">
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="inq_squad hidden" onClick="toggleInqSquad(this)">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>  
+                    </div>              
+                </template>
+                <div id="students">
+
+                </div>
+            </div>
+            <div class="right_col">
+                <div class="hack_the_system" onClick="hackTheSystem()">Hack the system</div>
+            </div>
         </div>
         
     </section>
@@ -62,17 +104,16 @@
                             <div>Blood Status:&nbsp;</div>
                             <div id="popup_bloodstatus"></div>
                         </div>
-                        <div class="info">
-                            <button class="prefect">prefect</button>
-                        </div>
                     </div>
                 </div>
             </div>
-            <!-- https://www.toptal.com/designers/htmlarrows/symbols/multiplication-x/ -->
             <div id="close_popup_button" onClick="closePopup()">&#10005;</div>
         </div>
+
+        <div id="warning" class="hidden">You can't expel Lasse!</div>
     </div>
 
-   <script src="hacked_hogwarts.js"></script> 
+   <script src="hacked_hogwarts.js"></script>
+   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 </body>
 </html>

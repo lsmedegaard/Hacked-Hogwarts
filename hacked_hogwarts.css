@@ -1,16 +1,125 @@
-.container {
+#main_cols {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+
+#main_cols .left_col {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#house_filters {
+  width: 120px;
+  height: 120px;
+  justify-content: space-between;
+  align-items: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+#house_filters div {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+#house_filters .unselected {
+  filter: grayscale(100%);
+}
+
+#house_filters #gryffindor {
+  background-image: url("images/gryffindor.png");
+}
+
+#house_filters #slytherin {
+  background-image: url("images/slytherin.png");
+}
+
+#house_filters #ravenclaw {
+  background-image: url("images/ravenclaw.png");
+}
+
+#house_filters #hufflepuff {
+  background-image: url("images/hufflepuff.png");
+}
+
+#search {
+  margin-bottom: 1.5rem;
+}
+
+#expelled_filter {
+  cursor: pointer;
+}
+
+.prefect.selected {
+  color: gold;
+}
+
+.inq_squad.selected {
+  color: red;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+#counts {
+  margin-top: 2rem;
+  line-height: 1.8;
+}
+
+#counts div {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#main_cols .middle_col {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.hack_the_system {
+  color: white;
+  cursor: pointer;
+}
+
+.hack_the_system:hover {
+  color: black;
+}
+
+#warning {
+  position: fixed;
+  height: 20px;
+  width: 500px;
+  top: calc((100vh - 20px) / 2);
+  left: calc((100vw - 500px) / 2);
+  color: white;
+  background: red;
+  padding: 15px;
+  text-align: center;
+}
+
+#headers_wrapper {
+  background-color: red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
 #headers {
   display: flex;
-  width: 100%;
-  margin-bottom: 4vw;
-  padding-bottom: 2vw;
+  align-items: center;
+  width: 50%;
+  height: 3rem;
   font-weight: 600;
-  background-color: red;
 }
 
 #headers div {
@@ -18,12 +127,12 @@
 }
 
 #headers div {
-  width: 33%;
+  width: 25%;
   cursor: pointer;
 }
 
 #students {
-  width: 50%;
+  width: 100%;
 }
 
 .student {
@@ -32,11 +141,29 @@
   justify-content: center;
   margin-bottom: 3vw;
   z-index: 1;
+  width: 100%;
 }
 
-.student div {
-  width: 33.33%;
+.student_info {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+}
+
+.student_info div {
   text-align: center;
+  width: 33%;
+}
+
+.student_actions {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 25%;
+}
+
+.student_actions div:not(:first-child) {
+  margin-left: 10px;
 }
 
 #popup_relative {
@@ -99,11 +226,6 @@
 }
 .show {
   visibility: visible;
-}
-
-.count_wrapper {
-  display: flex;
-  justify-content: center;
 }
 
 body {
